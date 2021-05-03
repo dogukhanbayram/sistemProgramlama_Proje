@@ -1,4 +1,4 @@
-CLASSDIR = /mnt/d/codingstuff/sistemProgramlama_Proje/Odev
+CLASSDIR = /home/bedirhan/Desktop/sistemProgramlama_Proje/Odev
 INCLUDE = -I$(CLASSDIR)/include
 CFLAGS = $(INCLUDE)
 LIBS = $(CLASSDIR)/lib/libfdr.a
