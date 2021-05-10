@@ -1,18 +1,19 @@
-CLASSDIR = /home/bedirhan/Desktop/sistemProgramlama_Proje/Odev
+CLASSDIR = /home/dogukhan/Desktop/Odev
 INCLUDE = -I$(CLASSDIR)/include
-CFLAGS = $(INCLUDE)
 LIBS = $(CLASSDIR)/lib/libfdr.a
 CC = gcc
 
-EX =\
-	bin/odev\
-	
+EX = odev
 all: $(EX) 
 clean: 
 	rm -f $(EX) *.o
 
-bin/odev: src/odev.c
-	$(CC) $(CFLAGS) -o bin/odev src/odev.c $(LIBS)
+odev: odev.o $(LIBS)
+	$(CC) $(INCLUDE) -o odev odev.o $(LIBS)
 
 
+.SUFFIXES: .c .o
+
+.c.o: 
+	$(CC) $(INCLUDE) -g  -c  $*.c
 
