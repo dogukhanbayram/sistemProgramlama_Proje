@@ -6,7 +6,6 @@ OBJS = $(CLASSDIR)/libfdr/dllist.o $(CLASSDIR)/libfdr/fields.o $(CLASSDIR)/libfd
 CFLAGS = -O
 
 EX = libfdr.a	main
-CLEANINRUN = clean
 all: $(EX) 
 
 cleanall:
