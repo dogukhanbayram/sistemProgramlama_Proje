@@ -27,9 +27,8 @@ int main(int argc, char **argv)
     kilit[i] = NULL;
   }
   
-  if (argc != 4) { fprintf(stderr, "duzgun kullan\n"); exit(1); }
+  if (argc != 4) { fprintf(stderr, "Arguman kullanimi yanlis!\n"); exit(1); }
  
-  /* Open the file as an inputstruct.  Error check. */
 
   is = new_inputstruct(".kilit");
   if (is == NULL) {

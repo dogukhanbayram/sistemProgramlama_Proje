@@ -1,29 +1,38 @@
-CLASSDIR = /home/dogukhan/Desktop/Odev
+CLASSDIR = .
 INCLUDE = -I$(CLASSDIR)/libfdr
 LIBS = $(CLASSDIR)/libfdr/libfdr.a
 CC = gcc
 OBJS = $(CLASSDIR)/libfdr/dllist.o $(CLASSDIR)/libfdr/fields.o $(CLASSDIR)/libfdr/jval.o $(CLASSDIR)/libfdr/jrb.o
 CFLAGS = -O
 
-EX = libfdr.a	odev	clean
+EX = libfdr.a	main
+CLEANINRUN = clean
 all: $(EX) 
 
-clear:
-	rm	-f	$(EX)
+cleanall:
+	$(MAKE) clean
+	rm  -f *.txt .kilit kripto encrypted decrypted
 
-clean: 
-	rm -f *.o
+clean:
+	rm -f kripto
+	rm -f *.o 
 	rm -f core $(CLASSDIR)/libfdr/*.o $(CLASSDIR)/libfdr/libfdr.a
+
+run:
+	$(MAKE) all
+	./kripto -e ornek_metin.txt encrypted
+	./kripto -d encrypted decrypted
+	$(MAKE) clean
 
 libfdr.a: $(OBJS)
 	ar ru $(CLASSDIR)/libfdr/libfdr.a $(OBJS)
 	ranlib $(CLASSDIR)/libfdr/libfdr.a 
 
-odev: odev.o $(LIBS)
-	$(CC) $(INCLUDE) -o odev odev.o $(LIBS)
+main: main.o $(LIBS)
+	$(CC) $(INCLUDE) -o kripto main.o $(LIBS)
 
-odev.o:
-	$(CC) $(INCLUDE) -g  -c  odev.c
+main.o:
+	$(CC) $(INCLUDE) -g  -c  main.c
 
 dllist.o:
 	$(CC) $(CFLAGS) -c $(CLASSDIR)/libfdr/dllist.c
@@ -36,4 +45,3 @@ jval.o:
 
 jrb.o:
 	$(CC) $(CFLAGS) -c $(CLASSDIR)/libfdr/jrb.c
-
